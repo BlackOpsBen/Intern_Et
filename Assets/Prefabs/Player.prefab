@@ -193,7 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bc73ceea4154f5da3fe4a7adb021b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elevatorStepTime: 0.1
   playerMover: {fileID: 1594102653445769451}
+  spriteRenderer: {fileID: 1594102653445769445}
 --- !u!1 &1594102653836624623
 GameObject:
   m_ObjectHideFlags: 0

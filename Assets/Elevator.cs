@@ -7,4 +7,6 @@ public class Elevator : MonoBehaviour
     public Elevator goingUp;
     public Elevator goingDown;
     public GameObject door;
+    public GameObject entryPoint;
+    public GameObject insidePoint;
 }

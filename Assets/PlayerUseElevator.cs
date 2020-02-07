@@ -7,9 +7,11 @@ public class PlayerUseElevator : MonoBehaviour
 {
     Elevator elevator;
 
-    [SerializeField] float elevatorStepTime = 0.5f;
+    [SerializeField] float elevatorStepTime = 0.1f;
 
     public PlayerMover playerMover;
+
+    public SpriteRenderer spriteRenderer;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -50,24 +52,34 @@ public class PlayerUseElevator : MonoBehaviour
         playerMover.isBusy = true;
 
         // Snap player in front of elevator
+        transform.position = elevator.entryPoint.transform.position;
 
         // Open door
         elevator.door.SetActive(false);
         yield return new WaitForSeconds(elevatorStepTime);
 
-        // Move player inside current elevator
+        // Move player inside current elevator AND set player behind elevator entry so his head is covered
+        spriteRenderer.sortingLayerName = "Background";
+        spriteRenderer.sortingOrder = 2;
+        transform.position = elevator.insidePoint.transform.position;
+        yield return new WaitForSeconds(elevatorStepTime);
 
         // Close door
         elevator.door.SetActive(true);
         yield return new WaitForSeconds(elevatorStepTime);
 
         // Move player inside new elevator
+        transform.position = destination.insidePoint.transform.position;
+        yield return new WaitForSeconds(elevatorStepTime);
 
         // Open door
         destination.door.SetActive(false);
         yield return new WaitForSeconds(elevatorStepTime);
 
-        // Move player outside new elevator
+        // Move player outside new elevator AND set back to normal sorting layer/order
+        spriteRenderer.sortingLayerName = "Foreground";
+        spriteRenderer.sortingOrder = 2;
+        transform.position = destination.entryPoint.transform.position;
 
         // and close door
         destination.door.SetActive(true);
