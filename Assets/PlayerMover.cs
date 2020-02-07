@@ -9,6 +9,7 @@ public class PlayerMover : MonoBehaviour
     bool isFacingLeft = false;
 
     float movementAxis;
+    float movementAxisRaw;
 
     // Start is called before the first frame update
     void Start()
@@ -20,14 +21,15 @@ public class PlayerMover : MonoBehaviour
     void FixedUpdate()
     {
         movementAxis = Input.GetAxis("Horizontal");
+        movementAxisRaw = Input.GetAxisRaw("Horizontal");
         
         // Move the player left and right
         transform.position = transform.position + new Vector3(movementAxis * Time.deltaTime * moveSpeed, 0f, 0f);
 
         ToggleRunAnimation();
 
-        // Player flip left
-        if (movementAxis < float.Epsilon)
+        // New flip behavior
+        if (movementAxisRaw == -1)
         {
             if (!isFacingLeft)
             {
@@ -35,16 +37,16 @@ public class PlayerMover : MonoBehaviour
                 isFacingLeft = true;
             }
         }
-        else if (movementAxis > float.Epsilon)
+        else if (movementAxisRaw == 1)
         {
-            if(isFacingLeft)
+            if (isFacingLeft)
             {
                 transform.Rotate(0f, 180f, 0f);
                 isFacingLeft = false;
             }
         }
 
-        // TODO Fix player always looking left after stopping movement
+        // TODO add forward momentum when stopping running.
 
     }
 
