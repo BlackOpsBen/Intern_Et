@@ -75,6 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goingUp: {fileID: 0}
   goingDown: {fileID: 0}
+  door: {fileID: 6863028057149963246}
 --- !u!1 &6863028055734753131
 GameObject:
   m_ObjectHideFlags: 0

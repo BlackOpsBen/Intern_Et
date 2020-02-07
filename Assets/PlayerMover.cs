@@ -8,6 +8,8 @@ public class PlayerMover : MonoBehaviour
     public Animator animator;
     bool isFacingLeft = false;
 
+    public bool isBusy = false;
+
     float movementAxis;
     float movementAxisRaw;
 
@@ -24,7 +26,10 @@ public class PlayerMover : MonoBehaviour
         movementAxisRaw = Input.GetAxisRaw("Horizontal");
         
         // Move the player left and right
-        transform.position = transform.position + new Vector3(movementAxis * Time.deltaTime * moveSpeed, 0f, 0f);
+        if (!isBusy)
+        {
+            transform.position = transform.position + new Vector3(movementAxis * Time.deltaTime * moveSpeed, 0f, 0f);
+        }
 
         ToggleRunAnimation();
 

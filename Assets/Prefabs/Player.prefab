@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   animator: {fileID: 1594102653445769446}
+  isBusy: 0
 --- !u!114 &7262648972713494420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bc73ceea4154f5da3fe4a7adb021b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMover: {fileID: 1594102653445769451}
 --- !u!1 &1594102653836624623
 GameObject:
   m_ObjectHideFlags: 0
