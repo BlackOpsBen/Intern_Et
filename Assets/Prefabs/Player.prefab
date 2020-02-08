@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 469294635}
   - component: {fileID: 55262829134567037}
   - component: {fileID: 437711345769703009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594102653836624622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TossPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

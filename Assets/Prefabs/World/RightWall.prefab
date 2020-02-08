@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8253509834266918669}
   - component: {fileID: 2599632204211830607}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightWall
   m_TagString: MoveStop
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 2.75, y: 1.5}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 8740437691468110262}
   - component: {fileID: 8613986706315742110}
   - component: {fileID: 6492515051995682582}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BG_Edge
   m_TagString: CoffeeStop
   m_Icon: {fileID: 0}
