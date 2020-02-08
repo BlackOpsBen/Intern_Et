@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print(waterMeter.localScale);
-
         pcsToFix = FindObjectsOfType<PC>();
         pcsRemaining = pcsToFix.Length;
 

@@ -181,8 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6956282e8398d1b45ae13d7d8c69b071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwInterval: 0.2
   tossPoint: {fileID: 1594102653836624622}
   coffee: {fileID: 4670027189094207185, guid: 36f5dc3450029394081e35e194d92891, type: 3}
+  isBusy: 0
 --- !u!114 &469294635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,8 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bc73ceea4154f5da3fe4a7adb021b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1594102653445769446}
   elevatorStepTime: 0.1
   playerMover: {fileID: 1594102653445769451}
+  playerShoot: {fileID: 7262648972713494420}
   spriteRenderer: {fileID: 1594102653445769445}
 --- !u!114 &55262829134567037
 MonoBehaviour:
@@ -227,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c2361c687c2490189b0366f6992537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!1 &1594102653836624623
 GameObject:
   m_ObjectHideFlags: 0

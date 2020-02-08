@@ -7,9 +7,13 @@ public class PlayerUseElevator : MonoBehaviour
 {
     Elevator elevator;
 
+    [SerializeField] Animator animator;
+
     [SerializeField] float elevatorStepTime = 0.1f;
 
-    public PlayerMover playerMover;
+    [SerializeField] PlayerMover playerMover;
+
+    [SerializeField] PlayerShoot playerShoot;
 
     public SpriteRenderer spriteRenderer;
 
@@ -53,6 +57,7 @@ public class PlayerUseElevator : MonoBehaviour
     {
         // Set player to isBusy (which prevents further movement/interaction)
         playerMover.isBusy = true;
+        playerShoot.isBusy = true;
 
         // Snap player in front of elevator
         transform.position = elevator.entryPoint.transform.position;
@@ -65,6 +70,7 @@ public class PlayerUseElevator : MonoBehaviour
         spriteRenderer.sortingLayerName = "Background";
         spriteRenderer.sortingOrder = 2;
         transform.position = elevator.insidePoint.transform.position;
+        animator.SetBool("isOnElevator", true);
         yield return new WaitForSeconds(elevatorStepTime);
 
         // Close door
@@ -82,6 +88,7 @@ public class PlayerUseElevator : MonoBehaviour
         // Move player outside new elevator AND set back to normal sorting layer/order
         spriteRenderer.sortingLayerName = "Foreground";
         spriteRenderer.sortingOrder = 2;
+        animator.SetBool("isOnElevator", false);
         transform.position = destination.entryPoint.transform.position;
 
         // and close door
@@ -90,6 +97,7 @@ public class PlayerUseElevator : MonoBehaviour
 
         // Set player to !isBusy (which gives back control)
         playerMover.isBusy = false;
+        playerShoot.isBusy = false;
         yield return new WaitForSeconds(elevatorStepTime);
     }
 
