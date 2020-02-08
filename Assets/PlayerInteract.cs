@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     float interactionThreshold = 0.95f;
     float verticalAxisRaw;
     bool doneInteracting = false;
 
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
     private void Update()
     {
         verticalAxisRaw = Input.GetAxisRaw("Vertical");
@@ -32,7 +37,7 @@ public class PlayerInteract : MonoBehaviour
             PC pc = collision.GetComponent<PC>();
             if ((Input.GetAxisRaw("Vertical") > float.Epsilon || Input.GetButtonDown("Fix")) && !doneInteracting)
             {
-                pc.Fix();
+                pc.Fix(gameManager);
             }
         }
     }

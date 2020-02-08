@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] PC[] pcsToFix;
     [SerializeField] CoffeeLevel[] employeesToRefill;
     [SerializeField] Hydration playerHydration;
+    [SerializeField] TextMeshProUGUI pcCounter;
+    int pcsRemaining;
     bool isEnded = false;
 
     // Start is called before the first frame update
     void Start()
     {
         pcsToFix = FindObjectsOfType<PC>();
+        pcsRemaining = pcsToFix.Length;
+
+        pcCounter.text = "PCs to fix: " + pcsRemaining.ToString();
+
         employeesToRefill = FindObjectsOfType<CoffeeLevel>();
         playerHydration = FindObjectOfType<Hydration>();
     }
@@ -88,5 +95,11 @@ public class GameManager : MonoBehaviour
     void LoseGameCoffee()
     {
         print("YOU LOSE due to coffee! Better luck next time."); // TODO remove
+    }
+
+    public void UpdatePCCounter()
+    {
+        pcsRemaining--;
+        pcCounter.text = "PCs to fix: " + pcsRemaining.ToString();
     }
 }

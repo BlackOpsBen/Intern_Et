@@ -7,9 +7,13 @@ public class PC : MonoBehaviour
     [SerializeField] Animator animator;
     public bool isFixed = false;
 
-    public void Fix()
+    public void Fix(GameManager gameManager)
     {
-        isFixed = true;
-        animator.SetBool("isFixed", true);
+        if (!isFixed)
+        {
+            isFixed = true;
+            animator.SetBool("isFixed", true);
+            gameManager.UpdatePCCounter();
+        }
     }
 }
