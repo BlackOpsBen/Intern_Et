@@ -37,12 +37,15 @@ public class PlayerUseElevator : MonoBehaviour
     {
         if (elevator.goingUp)
         {
-            print("Going UP from " + elevator.name);
             StartCoroutine(ElevateTo(elevator.goingUp));
         }
-        else
+    }
+
+    private void GoDown()
+    {
+        if (elevator.goingDown)
         {
-            print("Can't go up.");
+            StartCoroutine(ElevateTo(elevator.goingDown));
         }
     }
 
@@ -88,20 +91,6 @@ public class PlayerUseElevator : MonoBehaviour
         // Set player to !isBusy (which gives back control)
         playerMover.isBusy = false;
         yield return new WaitForSeconds(elevatorStepTime);
-        print("Ready to move!");
-    }
-
-    private void GoDown()
-    {
-        if (elevator.goingDown)
-        {
-            print("Going DOWN from " + elevator.name);
-            StartCoroutine(ElevateTo(elevator.goingDown));
-        }
-        else
-        {
-            print("Can't go down.");
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
