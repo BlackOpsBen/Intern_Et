@@ -7,6 +7,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     public Animator animator;
     bool isFacingLeft = false;
+    float stickThreshold = 0.1f;
 
     public bool isBusy = false;
 
@@ -26,7 +27,7 @@ public class PlayerMover : MonoBehaviour
         movementAxisRaw = Input.GetAxisRaw("Horizontal");
         
         // Move the player left and right
-        if (!isBusy)
+        if (!isBusy && (movementAxis > stickThreshold || movementAxis < -stickThreshold))
         {
             transform.position = transform.position + new Vector3(movementAxis * Time.deltaTime * moveSpeed, 0f, 0f);
         }
@@ -34,7 +35,7 @@ public class PlayerMover : MonoBehaviour
         ToggleRunAnimation();
 
         // New flip behavior
-        if (movementAxisRaw < -0.1f)
+        if (movementAxisRaw < -stickThreshold)
         {
             if (!isFacingLeft)
             {
@@ -42,7 +43,7 @@ public class PlayerMover : MonoBehaviour
                 isFacingLeft = true;
             }
         }
-        else if (movementAxisRaw > 0.1f)
+        else if (movementAxisRaw > stickThreshold)
         {
             if (isFacingLeft)
             {
@@ -57,7 +58,7 @@ public class PlayerMover : MonoBehaviour
 
     private void ToggleRunAnimation()
     {
-        if (Input.GetButton("Horizontal"))
+        if (movementAxis < -stickThreshold || movementAxis > stickThreshold)
         {
             animator.SetBool("isRunning", true);
         }

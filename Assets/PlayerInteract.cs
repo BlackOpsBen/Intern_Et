@@ -9,7 +9,7 @@ public class PlayerInteract : MonoBehaviour
         if (collision.GetComponent<PC>())
         {
             PC pc = collision.GetComponent<PC>();
-            if (Input.GetAxisRaw("Vertical") > float.Epsilon)
+            if (Input.GetAxisRaw("Vertical") > float.Epsilon || Input.GetButtonDown("Fix"))
             {
                 pc.Fix();
             }
