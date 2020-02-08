@@ -34,7 +34,7 @@ public class PlayerMover : MonoBehaviour
         ToggleRunAnimation();
 
         // New flip behavior
-        if (movementAxisRaw == -1)
+        if (movementAxisRaw < -0.1f)
         {
             if (!isFacingLeft)
             {
@@ -42,7 +42,7 @@ public class PlayerMover : MonoBehaviour
                 isFacingLeft = true;
             }
         }
-        else if (movementAxisRaw == 1)
+        else if (movementAxisRaw > 0.1f)
         {
             if (isFacingLeft)
             {
