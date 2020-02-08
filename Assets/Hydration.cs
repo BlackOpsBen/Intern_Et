@@ -33,7 +33,7 @@ public class Hydration : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "WaterCooler")
+        if (collision.gameObject.tag == "WaterCooler")
         {
             hydrationLevel = maxHydration;
         }
