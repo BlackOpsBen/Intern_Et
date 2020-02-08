@@ -1191,6 +1191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pcsToFix: []
+  employeesToRefill: []
+  playerHydration: {fileID: 0}
 --- !u!4 &892837874
 Transform:
   m_ObjectHideFlags: 0
