@@ -38,6 +38,16 @@ public class CoffeeLevel : MonoBehaviour
             coffeeLevel = maxCoffeeLevel;
             animator.SetBool("isAngry", false);
             animator.SetTrigger("Hit");
+            StartCoroutine(disableEmployeeWalk());
         }
     }
+
+    private IEnumerator disableEmployeeWalk()
+    {
+        GetComponent<EmployeeWalk>().enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<EmployeeWalk>().enabled = true;
+    }
+
+    
 }
