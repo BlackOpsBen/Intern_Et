@@ -59,7 +59,6 @@ public class PlayerMover : MonoBehaviour
     {
         if (Input.GetButton("Horizontal"))
         {
-            print("Running!");
             animator.SetBool("isRunning", true);
         }
         else

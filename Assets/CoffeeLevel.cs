@@ -21,14 +21,12 @@ public class CoffeeLevel : MonoBehaviour
         while (coffeeLevel > float.Epsilon)
         {
             coffeeLevel -= lossAmount;
-            print(coffeeLevel); // TODO remove
             if (coffeeLevel < maxCoffeeLevel * angerThreshold)
             {
                 animator.SetBool("isAngry", true);
             }
             yield return new WaitForSeconds(lossRate);
         }
-        print("Out of coffee! Game over!"); // TODO remove
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
