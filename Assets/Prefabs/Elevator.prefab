@@ -110,6 +110,7 @@ MonoBehaviour:
   door: {fileID: 6863028057149963246}
   entryPoint: {fileID: 306175254592461138}
   insidePoint: {fileID: 8903214817192905131}
+  spriteRenderer: {fileID: 6863028055734753133}
 --- !u!1 &6863028055734753131
 GameObject:
   m_ObjectHideFlags: 0
