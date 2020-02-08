@@ -129,12 +129,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1594102653445769446
 Animator:
   serializedVersion: 3
@@ -213,6 +213,8 @@ MonoBehaviour:
   hydrationLevel: 10
   lossAmount: 1
   lossRate: 1
+  thirstThreshold: 0.3
+  isHydrated: 1
 --- !u!114 &437711345769703009
 MonoBehaviour:
   m_ObjectHideFlags: 0
