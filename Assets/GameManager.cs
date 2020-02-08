@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         pcsToFix = FindObjectsOfType<PC>();
         pcsRemaining = pcsToFix.Length;
 
-        pcCounter.text = "PCs to fix: " + pcsRemaining.ToString();
+        pcCounter.text = pcsRemaining.ToString();
 
         employeesToRefill = FindObjectsOfType<CoffeeLevel>();
         playerHydration = FindObjectOfType<Hydration>();
@@ -100,6 +100,6 @@ public class GameManager : MonoBehaviour
     public void UpdatePCCounter()
     {
         pcsRemaining--;
-        pcCounter.text = "PCs to fix: " + pcsRemaining.ToString();
+        pcCounter.text = pcsRemaining.ToString();
     }
 }
