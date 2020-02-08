@@ -9,12 +9,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] CoffeeLevel[] employeesToRefill;
     [SerializeField] Hydration playerHydration;
     [SerializeField] TextMeshProUGUI pcCounter;
+    [SerializeField] RectTransform waterMeter;
+    [SerializeField] float waterFillMaxSize = 200f;
+    float waterFillCurrentSize;
     int pcsRemaining;
+
     bool isEnded = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        print(waterMeter.localScale);
+
         pcsToFix = FindObjectsOfType<PC>();
         pcsRemaining = pcsToFix.Length;
 
@@ -43,6 +49,7 @@ public class GameManager : MonoBehaviour
             {
                 LoseGameCoffee();
             }
+            UpdateWaterMeter();
         }
     }
 
@@ -101,5 +108,11 @@ public class GameManager : MonoBehaviour
     {
         pcsRemaining--;
         pcCounter.text = pcsRemaining.ToString();
+    }
+
+    private void UpdateWaterMeter()
+    {
+        waterFillCurrentSize = playerHydration.hydrationLevel * waterFillMaxSize / playerHydration.GetMaxHydration();
+        waterMeter.localScale = new Vector3(waterFillCurrentSize, 1, 1);
     }
 }

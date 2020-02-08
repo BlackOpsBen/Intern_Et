@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Hydration : MonoBehaviour
 {
-    [SerializeField] static float maxHydration = 10f;
-    [SerializeField] float hydrationLevel = maxHydration;
+    static float maxHydration = 10f;
+    public float hydrationLevel = maxHydration;
     [SerializeField] float lossAmount = 1f;
     [SerializeField] float lossRate = 1f;
     [SerializeField] float thirstThreshold = 0.3f;
@@ -37,5 +37,10 @@ public class Hydration : MonoBehaviour
         {
             hydrationLevel = maxHydration;
         }
+    }
+
+    public float GetMaxHydration()
+    {
+        return maxHydration;
     }
 }
