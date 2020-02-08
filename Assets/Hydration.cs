@@ -24,7 +24,7 @@ public class Hydration : MonoBehaviour
             if (hydrationLevel < maxHydration * thirstThreshold)
             {
                 // Implement feedback to player that hydration is dangerously low.
-                print("You are dangerously dehydrated!"); // TODO remove
+                print("You are dangerously dehydrated! (Need to implement visual feedback.)"); // TODO remove
             }
             yield return new WaitForSeconds(lossRate);
         }
