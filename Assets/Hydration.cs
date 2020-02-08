@@ -8,6 +8,8 @@ public class Hydration : MonoBehaviour
     [SerializeField] float hydrationLevel = maxHydration;
     [SerializeField] float lossAmount = 1f;
     [SerializeField] float lossRate = 1f;
+    [SerializeField] float thirstThreshold = 0.3f;
+    public bool isHydrated = true;
 
     private void Start()
     {
@@ -19,15 +21,21 @@ public class Hydration : MonoBehaviour
         while (hydrationLevel > float.Epsilon)
         {
             hydrationLevel -= lossAmount;
+            if (hydrationLevel < maxHydration * thirstThreshold)
+            {
+                // Implement feedback to player that hydration is dangerously low.
+                print("You are dangerously dehydrated!"); // TODO remove
+            }
+            yield return new WaitForSeconds(lossRate);
         }
-        yield return new WaitForSeconds(lossRate);
+        isHydrated = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "WaterCooler")
         {
-            print("Water refilled!");
+            hydrationLevel = maxHydration;
         }
     }
 }

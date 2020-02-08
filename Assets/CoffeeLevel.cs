@@ -10,6 +10,7 @@ public class CoffeeLevel : MonoBehaviour
     [SerializeField] float lossAmount = 1f;
     [SerializeField] float angerThreshold = 0.3f;
     [SerializeField] Animator animator;
+    public bool isDecaffeinated = false;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class CoffeeLevel : MonoBehaviour
             }
             yield return new WaitForSeconds(lossRate);
         }
+        isDecaffeinated = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
