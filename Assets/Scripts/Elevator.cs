@@ -11,7 +11,6 @@ public class Elevator : MonoBehaviour
     public GameObject insidePoint;
     [SerializeField] SpriteRenderer spriteRenderer;
 
-    [ExecuteInEditMode]
     private void Start()
     {
         if (!goingDown && !goingUp)

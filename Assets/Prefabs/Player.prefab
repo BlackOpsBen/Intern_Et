@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
+  stepSound: {fileID: 6888621432333006569, guid: 77991d7c4924547f881bb57acca41284,
+    type: 3}
   animator: {fileID: 1594102653445769446}
   isBusy: 0
 --- !u!114 &7262648972713494420

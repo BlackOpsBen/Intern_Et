@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
+    [SerializeField] GameObject stepSound;
     public Animator animator;
     bool isFacingLeft = false;
     float stickThreshold = 0.1f;
@@ -13,12 +14,6 @@ public class PlayerMover : MonoBehaviour
 
     float movementAxis;
     float movementAxisRaw;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -66,5 +61,10 @@ public class PlayerMover : MonoBehaviour
         {
             animator.SetBool("isRunning", false);
         }
+    }
+
+    public void PlayStepSount()
+    {
+        Instantiate(stepSound, transform.position, Quaternion.identity);
     }
 }
