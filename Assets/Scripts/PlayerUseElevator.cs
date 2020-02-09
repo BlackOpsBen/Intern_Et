@@ -15,6 +15,10 @@ public class PlayerUseElevator : MonoBehaviour
 
     [SerializeField] PlayerShoot playerShoot;
 
+    [SerializeField] GameObject dingSound;
+
+    [SerializeField] GameObject openSound;
+
     public SpriteRenderer spriteRenderer;
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -63,6 +67,7 @@ public class PlayerUseElevator : MonoBehaviour
         transform.position = elevator.entryPoint.transform.position;
 
         // Open door
+        Instantiate(openSound, transform.position, Quaternion.identity);
         elevator.door.SetActive(false);
         yield return new WaitForSeconds(elevatorStepTime);
 
@@ -82,6 +87,7 @@ public class PlayerUseElevator : MonoBehaviour
         yield return new WaitForSeconds(elevatorStepTime);
 
         // Open door
+        Instantiate(dingSound, transform.position, Quaternion.identity);
         destination.door.SetActive(false);
         yield return new WaitForSeconds(elevatorStepTime);
 

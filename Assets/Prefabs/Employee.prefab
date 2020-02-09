@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 1560170276099628164}
   m_Layer: 9
   m_Name: Employee
-  m_TagString: CoffeeStop
+  m_TagString: CoffeeTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,6 +177,8 @@ MonoBehaviour:
   lossAmount: 1
   angerThreshold: 0.3
   animator: {fileID: 2985649926635128523}
+  coffeeSound: {fileID: 3210671764702494679, guid: b1bb329de6fff7f44b7b8a64be7cdf72,
+    type: 3}
   isDecaffeinated: 0
 --- !u!114 &2985649926843860634
 MonoBehaviour:

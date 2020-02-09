@@ -204,6 +204,9 @@ MonoBehaviour:
   elevatorStepTime: 0.1
   playerMover: {fileID: 1594102653445769451}
   playerShoot: {fileID: 7262648972713494420}
+  dingSound: {fileID: 1639512723524941430, guid: 7cf4c4a763d9f884ea180f6751d14c25,
+    type: 3}
+  openSound: {fileID: 10469370015963459, guid: fa52c38b854886d4b851723d7949ab92, type: 3}
   spriteRenderer: {fileID: 1594102653445769445}
 --- !u!114 &55262829134567037
 MonoBehaviour:
@@ -223,6 +226,7 @@ MonoBehaviour:
   thirstThreshold: 0.3
   refillFX: {fileID: 3184421783771041166, guid: ef3f8c5ca6d89d541ab9526b6c2f5759,
     type: 3}
+  refillSound: {fileID: 0}
   isHydrated: 1
 --- !u!114 &437711345769703009
 MonoBehaviour:

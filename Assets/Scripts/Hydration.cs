@@ -10,6 +10,7 @@ public class Hydration : MonoBehaviour
     [SerializeField] float lossRate = 1f;
     [SerializeField] float thirstThreshold = 0.3f;
     [SerializeField] GameObject refillFX;
+    [SerializeField] GameObject refillSound;
     public bool isHydrated = true;
 
     private void Start()

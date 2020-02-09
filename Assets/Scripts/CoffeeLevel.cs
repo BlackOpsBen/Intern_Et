@@ -10,6 +10,7 @@ public class CoffeeLevel : MonoBehaviour
     [SerializeField] float lossAmount = 1f;
     [SerializeField] float angerThreshold = 0.3f;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject coffeeSound;
     public bool isDecaffeinated = false;
 
     private void Start()
@@ -35,6 +36,7 @@ public class CoffeeLevel : MonoBehaviour
     {
         if (collision.GetComponent<CoffeeFly>())
         {
+            Instantiate(coffeeSound, transform.position, Quaternion.identity);
             coffeeLevel = maxCoffeeLevel;
             animator.SetBool("isAngry", false);
             animator.SetTrigger("Hit");
