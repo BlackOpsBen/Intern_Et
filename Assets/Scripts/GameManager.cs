@@ -61,6 +61,11 @@ public class GameManager : MonoBehaviour
             }
             UpdateWaterMeter();
         }
+
+        if(Input.GetKeyDown(KeyCode.Return) && ( Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) ) )
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 
     bool CheckIfWon()

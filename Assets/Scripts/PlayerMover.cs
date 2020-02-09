@@ -47,8 +47,6 @@ public class PlayerMover : MonoBehaviour
             }
         }
 
-        // TODO add forward momentum when stopping running.
-
     }
 
     private void ToggleRunAnimation()
