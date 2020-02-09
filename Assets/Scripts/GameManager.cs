@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,11 +15,18 @@ public class GameManager : MonoBehaviour
     float waterFillCurrentSize;
     int pcsRemaining;
 
+    int nextScene;
+    int currentScene;
+
     bool isEnded = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        print("LEVEL STARTED: " + SceneManager.GetActiveScene().name);
+        nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+
         pcsToFix = FindObjectsOfType<PC>();
         pcsRemaining = pcsToFix.Length;
 
@@ -89,17 +97,17 @@ public class GameManager : MonoBehaviour
 
     void WinGame()
     {
-        print("YOU WIN!"); // TODO remove
+        SceneManager.LoadScene(nextScene);
     }
 
     void LoseGameWater()
     {
-        print("YOU LOSE due to water! Better luck next time."); // TODO remove
+        SceneManager.LoadScene(currentScene);
     }
 
     void LoseGameCoffee()
     {
-        print("YOU LOSE due to coffee! Better luck next time."); // TODO remove
+        SceneManager.LoadScene(currentScene);
     }
 
     public void UpdatePCCounter()

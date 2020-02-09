@@ -76,14 +76,4 @@ public class EmployeeWalk : MonoBehaviour
         animator.SetBool("isWalking", false);
         direction = 0;
     }
-
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if(collision.tag == "MoveStop")
-    //    {
-    //        print("Emplyee hit wall!");
-    //        direction = direction * -1;
-    //        isFacingLeft = !isFacingLeft;
-    //    }
-    //}
 }

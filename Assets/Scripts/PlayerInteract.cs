@@ -16,16 +16,13 @@ public class PlayerInteract : MonoBehaviour
     private void Update()
     {
         verticalAxisRaw = Input.GetAxisRaw("Vertical");
-        print(verticalAxisRaw);
 
         if ( (verticalAxisRaw > interactionThreshold || Input.GetButtonDown("Fix")) && !doneInteracting)
         {
-            print("Interaction done.");
             doneInteracting = true;
         }
         if ( (verticalAxisRaw < 1 - interactionThreshold || Input.GetButtonUp("Fix")) && doneInteracting )
         {
-            print("Interaction refreshed!");
             doneInteracting = false;
         }
     }
