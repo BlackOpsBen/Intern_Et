@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         print("LEVEL STARTED: " + SceneManager.GetActiveScene().name);
+
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         currentScene = SceneManager.GetActiveScene().buildIndex;
 

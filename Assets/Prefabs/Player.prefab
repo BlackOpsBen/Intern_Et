@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwInterval: 0.2
+  animator: {fileID: 1594102653445769446}
   tossPoint: {fileID: 1594102653836624622}
   coffee: {fileID: 4670027189094207185, guid: 36f5dc3450029394081e35e194d92891, type: 3}
   isBusy: 0

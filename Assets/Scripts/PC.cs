@@ -13,7 +13,10 @@ public class PC : MonoBehaviour
         {
             isFixed = true;
             animator.SetBool("isFixed", true);
-            gameManager.UpdatePCCounter();
+            if(gameManager)
+            {
+                gameManager.UpdatePCCounter();
+            }
         }
     }
 }
