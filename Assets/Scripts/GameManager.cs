@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] EndScreen endScreen;
     [SerializeField] float waterFillMaxSize = 200f;
     [SerializeField] float endScreenStepDelay = 2f;
+    [SerializeField] GameTimer gameTimer;
     float waterFillCurrentSize;
     int pcsRemaining;
 
@@ -25,6 +26,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        gameTimer = FindObjectOfType<GameTimer>();
+        gameTimer.StartTimer();
+
         endScreen = FindObjectOfType<EndScreen>();
         endScreen.StartOff();
 
@@ -64,7 +68,7 @@ public class GameManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Return) && ( Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) ) )
         {
-            SceneManager.LoadScene(nextScene);
+            StartCoroutine(WinGame());
         }
     }
 
@@ -108,8 +112,11 @@ public class GameManager : MonoBehaviour
     {
         endScreen.ActivateEndScreen(false, false);
         yield return new WaitForSeconds(endScreenStepDelay);
-        endScreen.SwitchToReadyScreen("You got this");
-        yield return new WaitForSeconds(endScreenStepDelay);
+        if (SceneManager.GetActiveScene().buildIndex != 8) // TODO make this variable dynamic to always be based on the last scene (lastScene.buildindex - 1)
+        {
+            endScreen.SwitchToReadyScreen("You got this");
+            yield return new WaitForSeconds(endScreenStepDelay);
+        }
         SceneManager.LoadScene(nextScene);
     }
 

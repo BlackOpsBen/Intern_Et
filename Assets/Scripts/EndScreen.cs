@@ -9,10 +9,12 @@ public class EndScreen : MonoBehaviour
     [SerializeField] TextMeshProUGUI subText;
     [SerializeField] AudioSource loseJingle;
     [SerializeField] AudioSource winJingle;
+    [SerializeField] GameTimer gameTimer;
     GameObject musicPlayer;
 
     private void Awake()
     {
+        gameTimer = FindObjectOfType<GameTimer>();
         musicPlayer = GameObject.Find("Music");
     }
 
@@ -23,12 +25,14 @@ public class EndScreen : MonoBehaviour
 
     public void ActivateEndScreen(bool loseWater, bool loseCoffee)
     {
+        gameTimer.StopTimer();
+
         musicPlayer.GetComponent<AudioSource>().Stop();
         if(!loseWater && !loseCoffee)
         {
             loseJingle.playOnAwake = false;
             headerText.text = "Complete";
-            subText.text = "Good job";
+            subText.text = "Time: " + gameTimer.GetCurrentLevelTime();
         }
         else if (loseWater && !loseCoffee)
         {

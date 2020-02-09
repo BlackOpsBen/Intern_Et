@@ -9,6 +9,14 @@ public class GameEndScreen : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI headerText;
     [SerializeField] Button playAgainButton;
+    [SerializeField] TextMeshProUGUI totalTime;
+    [SerializeField] TextMeshProUGUI stageTimes;
+    [SerializeField] TextMeshProUGUI tries;
+    [SerializeField] TextMeshProUGUI cups;
+    [SerializeField] TextMeshProUGUI refills;
+    [SerializeField] GameTimer timer;
+
+    string[] levelTimes;
 
     public KeyCode playKey;
 
@@ -17,6 +25,8 @@ public class GameEndScreen : MonoBehaviour
 
     private void Awake()
     {
+        timer = FindObjectOfType<GameTimer>();
+        levelTimes = timer.GetAllLevelTimes();
         playAgainButton.gameObject.SetActive(false);
         StartCoroutine(cycleText());
     }
@@ -32,6 +42,11 @@ public class GameEndScreen : MonoBehaviour
     private IEnumerator cycleText()
     {
         headerText.text = "You win!";
+        totalTime.text = timer.GetTotalTime();
+        for (int i = 0; i < levelTimes.Length; i++)
+        {
+            stageTimes.text = stageTimes.text + "\n" + levelTimes[i];
+        }
         yield return new WaitForSeconds(cycleInterval);
         headerText.text = "Thank you for playing!";
         yield return new WaitForSeconds(cycleInterval);
