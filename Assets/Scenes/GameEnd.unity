@@ -899,7 +899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -115, y: -1.6721115}
+  m_AnchoredPosition: {x: -115, y: -26}
   m_SizeDelta: {x: 229.4, y: 138.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1150124703
@@ -1128,8 +1128,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 200, y: 188}
-  m_SizeDelta: {x: 229.4, y: 138.3}
+  m_AnchoredPosition: {x: 191, y: 216}
+  m_SizeDelta: {x: 346.5, y: 127.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1667068000
 MonoBehaviour:
@@ -1149,7 +1149,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: '
+
+    Stage 1: 00m 00s
+
+    Stage 1: 00m 00s
+
+    Stage 1: 00m 00s
+
+    Stage 1: 00m 00s
+
+    Stage 1: 00m 00s
+
+    Stage 1: 00m 00s
+
+    Stage 1: 00m 00s
+
+    Stage 1: 00m 00s'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9031ea0773f799b4ca61fb745c9ea5c1, type: 2}
   m_sharedMaterial: {fileID: 21512380398006900, guid: 9031ea0773f799b4ca61fb745c9ea5c1,
@@ -1195,7 +1211,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 60
+  m_firstOverflowCharacterIndex: 69
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1219,13 +1235,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1667068000}
-    characterCount: 0
+    characterCount: 136
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 32
+    wordCount: 33
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 9
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

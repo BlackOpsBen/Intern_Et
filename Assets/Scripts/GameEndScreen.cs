@@ -43,9 +43,9 @@ public class GameEndScreen : MonoBehaviour
     {
         headerText.text = "You win!";
         totalTime.text = timer.GetTotalTime();
-        for (int i = 0; i < levelTimes.Length; i++)
+        for (int i = 1; i < levelTimes.Length-1; i++) // TODO make dynamically exclude menu and end screen scenes (why int = 1 and length-1)
         {
-            stageTimes.text = stageTimes.text + "\n" + levelTimes[i];
+            stageTimes.text = stageTimes.text + "\n" + "Stage " + i + ": " + levelTimes[i];
         }
         yield return new WaitForSeconds(cycleInterval);
         headerText.text = "Thank you for playing!";
