@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Hydration playerHydration;
     [SerializeField] TextMeshProUGUI pcCounter;
     [SerializeField] RectTransform waterMeter;
+    [SerializeField] GameObject endScreen;
     [SerializeField] float waterFillMaxSize = 200f;
     float waterFillCurrentSize;
     int pcsRemaining;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        print("LEVEL STARTED: " + SceneManager.GetActiveScene().name);
+        endScreen = FindObjectOfType<EndScreen>();
 
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         currentScene = SceneManager.GetActiveScene().buildIndex;
