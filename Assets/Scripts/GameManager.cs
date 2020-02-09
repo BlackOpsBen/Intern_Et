@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] Hydration playerHydration;
     [SerializeField] TextMeshProUGUI pcCounter;
     [SerializeField] RectTransform waterMeter;
-    [SerializeField] GameObject endScreen;
+    [SerializeField] EndScreen endScreen;
     [SerializeField] float waterFillMaxSize = 200f;
+    [SerializeField] float endScreenStepDelay = 2f;
     float waterFillCurrentSize;
     int pcsRemaining;
 
@@ -25,12 +26,14 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         endScreen = FindObjectOfType<EndScreen>();
+        endScreen.StartOff();
 
         nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         currentScene = SceneManager.GetActiveScene().buildIndex;
 
         pcsToFix = FindObjectsOfType<PC>();
         pcsRemaining = pcsToFix.Length;
+        Debug.LogWarning(pcsToFix.Length);
 
         pcCounter.text = pcsRemaining.ToString();
 
@@ -45,17 +48,17 @@ public class GameManager : MonoBehaviour
         {
             if (CheckIfWon())
             {
-                WinGame();
+                StartCoroutine(WinGame());
             }
 
             else if (CheckIfLostDueToWater())
             {
-                LoseGameWater();
+                StartCoroutine(LoseGameWater());
             }
 
             else if (CheckIfLostDueToCoffee())
             {
-                LoseGameCoffee();
+                StartCoroutine(LoseGameCoffee());
             }
             UpdateWaterMeter();
         }
@@ -97,18 +100,30 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    void WinGame()
+    private IEnumerator WinGame()
     {
+        endScreen.ActivateEndScreen(false, false);
+        yield return new WaitForSeconds(endScreenStepDelay);
+        endScreen.SwitchToReadyScreen("You got this");
+        yield return new WaitForSeconds(endScreenStepDelay);
         SceneManager.LoadScene(nextScene);
     }
 
-    void LoseGameWater()
+    private IEnumerator LoseGameWater()
     {
+        endScreen.ActivateEndScreen(true, false);
+        yield return new WaitForSeconds(endScreenStepDelay);
+        endScreen.SwitchToReadyScreen("Don't forget to drink water");
+        yield return new WaitForSeconds(endScreenStepDelay);
         SceneManager.LoadScene(currentScene);
     }
 
-    void LoseGameCoffee()
+    private IEnumerator LoseGameCoffee()
     {
+        endScreen.ActivateEndScreen(false, true);
+        yield return new WaitForSeconds(endScreenStepDelay);
+        endScreen.SwitchToReadyScreen("Keep everyone caffeinated");
+        yield return new WaitForSeconds(endScreenStepDelay);
         SceneManager.LoadScene(currentScene);
     }
 

@@ -22,10 +22,6 @@ public class PlayerShoot : MonoBehaviour
             {
                 StartCoroutine(ThrowCoffee());
             }
-            else
-            {
-                print("Can't throw yet.");
-            }
         }
         if (Input.GetButtonUp("Shoot"))
         {
