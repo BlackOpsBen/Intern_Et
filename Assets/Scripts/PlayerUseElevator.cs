@@ -96,15 +96,11 @@ public class PlayerUseElevator : MonoBehaviour
         spriteRenderer.sortingOrder = 2;
         animator.SetBool("isOnElevator", false);
         transform.position = destination.entryPoint.transform.position;
+        playerMover.isBusy = false;
+        playerShoot.isBusy = false;
 
         // and close door
         destination.door.SetActive(true);
-        yield return new WaitForSeconds(elevatorStepTime);
-
-        // Set player to !isBusy (which gives back control)
-        playerMover.isBusy = false;
-        playerShoot.isBusy = false;
-        yield return new WaitForSeconds(elevatorStepTime);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
