@@ -63,7 +63,7 @@ public class PlayerMover : MonoBehaviour
         }
     }
 
-    public void PlayStepSount()
+    public void PlayStepSound()
     {
         Instantiate(stepSound, transform.position, Quaternion.identity);
     }
