@@ -221,6 +221,8 @@ MonoBehaviour:
   lossAmount: 1
   lossRate: 1
   thirstThreshold: 0.3
+  refillFX: {fileID: 3184421783771041166, guid: ef3f8c5ca6d89d541ab9526b6c2f5759,
+    type: 3}
   isHydrated: 1
 --- !u!114 &437711345769703009
 MonoBehaviour:
