@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
         pcsToFix = FindObjectsOfType<PC>();
         pcsRemaining = pcsToFix.Length;
-        Debug.LogWarning(pcsToFix.Length);
 
         pcCounter.text = pcsRemaining.ToString();
 

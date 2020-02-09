@@ -197,6 +197,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 42810190}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &42810192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7957043509841023742, guid: b0fc6f5e8a3101e498fe9ac8c50d8c48,
+    type: 3}
+  m_PrefabInstance: {fileID: 42810190}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c746193c07d4100b7261e547018197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &74461740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1034,7 +1046,7 @@ PrefabInstance:
     - target: {fileID: 2985649926843860632, guid: db77ef7e93c7da94296c267059c6f8bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2985649926843860632, guid: db77ef7e93c7da94296c267059c6f8bb,
         type: 3}
@@ -3150,7 +3162,7 @@ PrefabInstance:
         type: 3}
       propertyPath: goingUp
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 42810192}
     - target: {fileID: 7957043509841023742, guid: b0fc6f5e8a3101e498fe9ac8c50d8c48,
         type: 3}
       propertyPath: goingDown
