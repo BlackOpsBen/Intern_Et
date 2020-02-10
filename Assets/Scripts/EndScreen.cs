@@ -10,10 +10,12 @@ public class EndScreen : MonoBehaviour
     [SerializeField] AudioSource loseJingle;
     [SerializeField] AudioSource winJingle;
     [SerializeField] GameTimer gameTimer;
+    [SerializeField] GameCounter counter;
     GameObject musicPlayer;
 
     private void Awake()
     {
+        counter = FindObjectOfType<GameCounter>();
         gameTimer = FindObjectOfType<GameTimer>();
         musicPlayer = GameObject.Find("Music");
     }
@@ -36,12 +38,14 @@ public class EndScreen : MonoBehaviour
         }
         else if (loseWater && !loseCoffee)
         {
+            counter.IncreaseTries();
             winJingle.playOnAwake = false;
             headerText.text = "Failure";
             subText.text = "to stay hydrated";
         }
         else if (!loseWater && loseCoffee)
         {
+            counter.IncreaseTries();
             winJingle.playOnAwake = false;
             headerText.text = "Failure";
             subText.text = "to provide coffee";

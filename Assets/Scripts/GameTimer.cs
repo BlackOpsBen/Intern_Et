@@ -11,6 +11,9 @@ public class GameTimer : MonoBehaviour
     bool isTiming = false;
     int currentLevel;
     float[] levelTimes;
+    float bestTotalTime = float.MaxValue;
+
+    public bool isNewBest = true;
     
     // Start is called before the first frame update
     void Start()
@@ -71,15 +74,22 @@ public class GameTimer : MonoBehaviour
 
     public string GetTotalTime()
     {
+        float totalTime = GetTotalTimeRaw();
+        return ConvertToTimeStamp(totalTime);
+    }
+
+    private float GetTotalTimeRaw()
+    {
         float totalTime = 0.0f;
         for (int i = 0; i < levelTimes.Length; i++)
         {
             totalTime += levelTimes[i];
         }
-        return ConvertToTimeStamp(totalTime);
+
+        return totalTime;
     }
 
-    private string ConvertToTimeStamp(float levelTime)
+    public string ConvertToTimeStamp(float levelTime)
     {
         string timeStamp;
         float minutes = Mathf.Floor(levelTime / 60);
@@ -99,5 +109,19 @@ public class GameTimer : MonoBehaviour
     private string GetLevelTimeStamp(float levelTime)
     {
         return ConvertToTimeStamp(levelTime);
+    }
+
+    public float GetBestTime()
+    {
+        if (GetTotalTimeRaw() < bestTotalTime)
+        {
+            isNewBest = true;
+            bestTotalTime = GetTotalTimeRaw();
+        }
+        else
+        {
+            isNewBest = false;
+        }
+        return bestTotalTime;
     }
 }

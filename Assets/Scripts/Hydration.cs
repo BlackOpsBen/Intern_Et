@@ -11,10 +11,12 @@ public class Hydration : MonoBehaviour
     [SerializeField] float thirstThreshold = 0.3f;
     [SerializeField] GameObject refillFX;
     [SerializeField] GameObject refillSound;
+    [SerializeField] GameCounter counter;
     public bool isHydrated = true;
 
     private void Start()
     {
+        counter = FindObjectOfType<GameCounter>();
         StartCoroutine(loseHydration());
     }
 
@@ -37,6 +39,7 @@ public class Hydration : MonoBehaviour
     {
         if (collision.gameObject.tag == "WaterCooler")
         {
+            counter.IncreaseRefills();
             Instantiate(refillFX, collision.transform.position, Quaternion.identity);
             hydrationLevel = maxHydration;
         }
