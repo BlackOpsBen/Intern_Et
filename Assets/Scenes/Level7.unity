@@ -2780,7 +2780,7 @@ PrefabInstance:
     - target: {fileID: 8253509834266918669, guid: c8837e6dcc057b947af4011811b68774,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8253509834266918669, guid: c8837e6dcc057b947af4011811b68774,
         type: 3}
@@ -3954,6 +3954,7 @@ MonoBehaviour:
   endScreen: {fileID: 0}
   waterFillMaxSize: 200
   endScreenStepDelay: 2
+  gameTimer: {fileID: 0}
 --- !u!1 &7803485738340738345
 GameObject:
   m_ObjectHideFlags: 0

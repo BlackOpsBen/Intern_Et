@@ -15,6 +15,7 @@ public class CoffeeLevel : MonoBehaviour
 
     private void Start()
     {
+        coffeeLevel -= UnityEngine.Random.Range(0f, 5f);
         StartCoroutine(loseCoffee());
     }
 
