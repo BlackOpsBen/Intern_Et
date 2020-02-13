@@ -23,7 +23,7 @@ public class GameTimer : MonoBehaviour
         {
             levelTimes[i] = 0.0f;
         }
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject); // TODO make object kill itself if one already exists.
         StartCoroutine(TrackTime());
     }
 

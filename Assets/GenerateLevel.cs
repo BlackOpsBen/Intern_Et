@@ -16,15 +16,13 @@ public class GenerateLevel : MonoBehaviour
     [SerializeField] GameObject rightWall;
 
     GameObject previous;
-    bool optionLeft = false;
-    bool optionBasicFloor = true;
-    bool optionRight = true;
-    bool optionWall = true;
+    bool optionLeft;
+    bool optionBasicFloor;
+    bool optionRight;
+    bool optionWall;
 
     private void Start()
     {
-        previous = leftWall;
-
         floor0Nodes = GameObject.FindGameObjectsWithTag("Floor0");
         floor1Nodes = GameObject.FindGameObjectsWithTag("Floor1");
         floor2Nodes = GameObject.FindGameObjectsWithTag("Floor2");
@@ -34,8 +32,18 @@ public class GenerateLevel : MonoBehaviour
         // For each floor, generate a floor
         for (int i = 0; i < Floors.Length; i++)
         {
+            SetNewFloorStartingCriteria();
             GenerateFloor(i);
         }
+    }
+
+    private void SetNewFloorStartingCriteria()
+    {
+        previous = leftWall;
+        optionLeft = false;
+        optionBasicFloor = true;
+        optionRight = true;
+        optionWall = true;
     }
 
     private void GenerateFloor(int floor)
@@ -43,17 +51,25 @@ public class GenerateLevel : MonoBehaviour
         // For each room/node in the given floor, determine what tile to use, then generate it.
         for (int room = 0; room < Floors[floor].Length; room++)
         {
-            if (optionWall && optionBasicFloor)
+            if (room == 2 && previous == rightWall)
             {
-                int randomRoll = UnityEngine.Random.Range(0, 2);
-                if (randomRoll == 0)
-                {
-                    ChooseBasicFloor(floor, room);
-                }
-                else
-                {
-                    ChooseWall(floor, room);
-                }
+                optionLeft = true;
+                optionBasicFloor = false;
+                optionRight = false;
+                optionWall = true;
+                ChooseWall(floor, room);
+            }
+            else if (room == 2 && (previous == basicFloor || previous == leftWall))
+            {
+                RollForRoomOrWall(floor, room);
+            }
+            else if (room == 3 && (previous == basicFloor || previous == leftWall))
+            {
+                ChooseBasicFloor(floor, room);
+            }
+            else if (optionWall && optionBasicFloor)
+            {
+                RollForRoomOrWall(floor, room);
             }
             else if (optionWall && !optionBasicFloor)
             {
@@ -63,6 +79,19 @@ public class GenerateLevel : MonoBehaviour
             {
                 ChooseBasicFloor(floor, room);
             }
+        }
+    }
+
+    private void RollForRoomOrWall(int floor, int room)
+    {
+        int randomRoll = UnityEngine.Random.Range(0, 2);
+        if (randomRoll == 0)
+        {
+            ChooseBasicFloor(floor, room);
+        }
+        else
+        {
+            ChooseWall(floor, room);
         }
     }
 
@@ -79,6 +108,7 @@ public class GenerateLevel : MonoBehaviour
         optionLeft = false;
         optionBasicFloor = true;
         optionRight = true;
+        optionWall = true;
     }
 
     private void GenerateNode(GameObject roomTile, int floor, int room)
@@ -95,6 +125,7 @@ public class GenerateLevel : MonoBehaviour
             optionLeft = false;
             optionBasicFloor = true;
             optionRight = true;
+            optionWall = true;
             return leftWall;
         }
         else
@@ -102,6 +133,7 @@ public class GenerateLevel : MonoBehaviour
             optionLeft = true;
             optionBasicFloor = false;
             optionRight = false;
+            optionWall = true;
             return rightWall;
         }
     }
