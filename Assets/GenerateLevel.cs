@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class GenerateLevel : MonoBehaviour
 {
+    int maxNumDividers = 3;
+    int numLeftDividers = 0;
+    int numRightDividers = 0;
+
     GameObject[] floor0Nodes;
     GameObject[] floor1Nodes;
     GameObject[] floor2Nodes;
@@ -43,7 +47,19 @@ public class GenerateLevel : MonoBehaviour
         optionLeft = false;
         optionBasicFloor = true;
         optionRight = true;
-        optionWall = true;
+        SetOptionWall();
+    }
+
+    private void SetOptionWall()
+    {
+        if (numLeftDividers + numRightDividers == maxNumDividers)
+        {
+            optionWall = false;
+        }
+        else
+        {
+            optionWall = true;
+        }
     }
 
     private void GenerateFloor(int floor)
@@ -56,10 +72,10 @@ public class GenerateLevel : MonoBehaviour
                 optionLeft = true;
                 optionBasicFloor = false;
                 optionRight = false;
-                optionWall = true;
+                SetOptionWall();
                 ChooseWall(floor, room);
             }
-            else if (room == 2 && (previous == basicFloor || previous == leftWall))
+            else if (room == 2 && (previous == basicFloor || previous == leftWall) && optionWall)
             {
                 RollForRoomOrWall(floor, room);
             }
@@ -98,7 +114,7 @@ public class GenerateLevel : MonoBehaviour
     private void ChooseWall(int floor, int room)
     {
         // Choose Wall
-        GenerateNode(GetEligibleWall(), floor, room);
+        GenerateNode(GetEligibleWall(room), floor, room);
     }
 
     private void ChooseBasicFloor(int floor, int room)
@@ -108,7 +124,7 @@ public class GenerateLevel : MonoBehaviour
         optionLeft = false;
         optionBasicFloor = true;
         optionRight = true;
-        optionWall = true;
+        SetOptionWall();
     }
 
     private void GenerateNode(GameObject roomTile, int floor, int room)
@@ -118,18 +134,26 @@ public class GenerateLevel : MonoBehaviour
     }
 
 
-    private GameObject GetEligibleWall()
+    private GameObject GetEligibleWall(int room)
     {
         if (optionLeft)
         {
             optionLeft = false;
             optionBasicFloor = true;
             optionRight = true;
-            optionWall = true;
+            SetOptionWall();
             return leftWall;
         }
         else
         {
+            if (room <= 1)
+            {
+                numLeftDividers++;
+            }
+            else
+            {
+                numRightDividers++;
+            }
             optionLeft = true;
             optionBasicFloor = false;
             optionRight = false;
