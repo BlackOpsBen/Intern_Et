@@ -20,12 +20,12 @@ public class CoffeeFly : MonoBehaviour
     {
         if (collision.tag == "CoffeeStop")
         {
-            counter.IncreaseCoffees();
             Instantiate(mugHitSound, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (collision.tag == "CoffeeTarget")
         {
+            counter.IncreaseCoffees();
             Destroy(gameObject);
         }
     }

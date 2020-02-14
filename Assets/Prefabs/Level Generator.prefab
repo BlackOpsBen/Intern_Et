@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5515704322828981142}
-  - component: {fileID: 5515704322828981143}
-  - component: {fileID: 5466448067018871339}
+  - component: {fileID: 8170926114927158014}
   m_Layer: 0
   m_Name: Level Generator
   m_TagString: Untagged
@@ -32,25 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5515704322828981143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5515704322828981140}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be56511993b14ef3bfa75ba3e4752a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicFloor: {fileID: 2288486621838952400, guid: c5542664d7b5e1c4880836cd3206ffe5,
-    type: 3}
-  leftWall: {fileID: 3720519303704074966, guid: 8e67b3fcfb5d66d4fac33be525344898,
-    type: 3}
-  rightWall: {fileID: 3237314437950594676, guid: c8837e6dcc057b947af4011811b68774,
-    type: 3}
---- !u!114 &5466448067018871339
+--- !u!114 &8170926114927158014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,12 +40,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5515704322828981140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 672b2a9137fa24e2da78d7d8b6049551, type: 3}
+  m_Script: {fileID: 11500000, guid: fe374226e34554f5a8cfa79ba03e5e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicFloor: {fileID: 2288486621838952400, guid: c5542664d7b5e1c4880836cd3206ffe5,
-    type: 3}
-  leftWall: {fileID: 3720519303704074966, guid: 8e67b3fcfb5d66d4fac33be525344898,
-    type: 3}
-  rightWall: {fileID: 3237314437950594676, guid: c8837e6dcc057b947af4011811b68774,
-    type: 3}

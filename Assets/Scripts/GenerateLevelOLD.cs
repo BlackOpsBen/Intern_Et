@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenerateLevel : MonoBehaviour
+public class GenerateLevelOLD : MonoBehaviour
 {
     int maxNumDividers = 3;
     int numLeftDividers = 0;
