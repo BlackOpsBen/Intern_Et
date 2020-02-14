@@ -31,23 +31,25 @@ public class GenerateLevelAlt : MonoBehaviour
 
         for (int i = 0; i < Floors.Length; i++)
         {
-            SetNewFloorStartCriteria();
+            previous = leftWall;
+            //SetNewFloorStartCriteria();
+            optionWall = false;
             GenerateFloor(i);
         }
     }
 
-    private void SetNewFloorStartCriteria()
-    {
-        previous = leftWall;
-        if (numDividers == maxNumDividers)
-        {
-            optionWall = false;
-        }
-        else
-        {
-            optionWall = true;
-        }
-    }
+    //private void SetNewFloorStartCriteria()
+    //{
+    //    previous = leftWall;
+    //    if (numDividers == maxNumDividers)
+    //    {
+    //        optionWall = false;
+    //    }
+    //    else
+    //    {
+    //        optionWall = true;
+    //    }
+    //}
 
     private void GenerateFloor(int floor)
     {
@@ -57,6 +59,11 @@ public class GenerateLevelAlt : MonoBehaviour
             {
                 RollForRoomOrWall(floor, room);
             }
+            else
+            {
+                GenerateRoom(basicFloor, floor, room);
+                optionWall = true;
+            }
         }
     }
 
@@ -65,22 +72,14 @@ public class GenerateLevelAlt : MonoBehaviour
         int randomRoll = UnityEngine.Random.Range(0, 2);
         if (randomRoll == 0)
         {
-            ChooseBasicFloor(floor, room);
+            GenerateRoom(basicFloor, floor, room);
+            optionWall = true;
         }
         else
         {
-            ChooseWall(floor, room);
+            GenerateRoom(GetEligibleWall(room), floor, room);
+            optionWall = false;
         }
-    }
-
-    private void ChooseBasicFloor(int floor, int room)
-    {
-        GenerateRoom(basicFloor, floor, room);
-    }
-
-    private void ChooseWall(int floor, int room)
-    {
-        GenerateRoom(GetEligibleWall(room), floor, room);
     }
 
     private void GenerateRoom(GameObject roomTile, int floor, int room)
