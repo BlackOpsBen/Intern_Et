@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GenerateLevelAlt : MonoBehaviour
 {
-    // test comment
     int maxNumDividers = 3;
     int numDividers = 0;
 
