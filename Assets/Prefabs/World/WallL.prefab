@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9033010606633428603}
   - component: {fileID: 7869171867084003539}
   m_Layer: 0
-  m_Name: Wall
-  m_TagString: Untagged
+  m_Name: WallL
+  m_TagString: MoveStop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 1902607339293338176}
   m_Layer: 0
   m_Name: BG_Wall
-  m_TagString: Untagged
+  m_TagString: CoffeeStop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
