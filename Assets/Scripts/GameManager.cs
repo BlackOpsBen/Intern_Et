@@ -66,9 +66,20 @@ public class GameManager : MonoBehaviour
             UpdateWaterMeter();
         }
 
+        // Cheat to win level
         if(Input.GetKeyDown(KeyCode.Backslash) && ( Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) ) )
         {
             StartCoroutine(WinGame());
+        }
+
+        // Cheat to skip to specific level
+        for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            Debug.Log(i);
+            if (Input.GetKey(i.ToString()) && Input.GetKeyDown(KeyCode.Backslash))
+            {
+                SceneManager.LoadScene(i);
+            }
         }
     }
 
@@ -112,7 +123,7 @@ public class GameManager : MonoBehaviour
     {
         endScreen.ActivateEndScreen(false, false);
         yield return new WaitForSeconds(endScreenStepDelay);
-        if (SceneManager.GetActiveScene().buildIndex != 8) // TODO make this variable dynamic to always be based on the last scene (lastScene.buildindex - 1)
+        if (SceneManager.GetActiveScene().buildIndex != SceneManager.sceneCountInBuildSettings-2) // TODO make this variable dynamic to always be based on the last scene (lastScene.buildindex - 1)
         {
             endScreen.SwitchToReadyScreen("You got this");
             yield return new WaitForSeconds(endScreenStepDelay);

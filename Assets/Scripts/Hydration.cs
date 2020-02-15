@@ -40,7 +40,7 @@ public class Hydration : MonoBehaviour
         if (collision.gameObject.tag == "WaterCooler")
         {
             counter.IncreaseRefills();
-            Instantiate(refillFX, collision.transform.position, Quaternion.identity);
+            Instantiate(refillFX, collision.transform.position + new Vector3(0.5f, 1.5f, 0f), Quaternion.identity);
             hydrationLevel = maxHydration;
         }
     }
